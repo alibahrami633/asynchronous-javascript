@@ -9,16 +9,16 @@ const config = { headers: { accept: "application/json" } };
 
 axios
   .get("https://icanhazdadjoke.com/", config)
-  .then(function(res) {
+  .then(function (res) {
     const { joke } = res.data;
 
-    appendFileAsync("jokes.txt", joke + "\n").then(function() {
-      readFileAsync("jokes.txt", "utf8").then(function(data) {
+    appendFileAsync("jokes.txt", joke + "\n").then(function () {
+      readFileAsync("jokes.txt", "utf8").then(function (data) {
         console.log("Saved dad jokes:");
         console.log(data);
       });
     });
   })
-  .catch(function(err) {
+  .catch(function (err) {
     console.log(err);
   });
